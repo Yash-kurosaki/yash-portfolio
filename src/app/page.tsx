@@ -37,7 +37,7 @@ export default function HomePage() {
       <div className="noise" />
 
       {/* Hero Section */}
-      <section className="relative z-10 flex min-h-screen flex-col items-center justify-start px-6 pt-25">
+      <section className="relative z-10 flex min-h-screen flex-col items-center justify-start px-6 pt-32 md:pt-25">
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -76,12 +76,12 @@ export default function HomePage() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.6 }}
-          className="flex gap-10 mt-20"
+          className="mt-20 flex flex-col gap-10 sm:flex-row sm:gap-6 "
         >
           <MagneticButton>
             <a
               href="#projects"
-              className="relative z-10 flex w-[170px] items-center justify-center rounded-full bg-white py-4 font-semibold text-black transition duration-300 hover:scale-105 hover:font-bold"
+              className="relative z-10 flex w-[220px] sm:w-[190px] items-center justify-center rounded-full bg-white py-4 font-semibold text-black transition duration-300 hover:scale-105 hover:font-bold"
             >
               Explore Work
             </a>
@@ -90,7 +90,7 @@ export default function HomePage() {
           <MagneticButton>
             <a
               href="#contact"
-              className="relative z-10 flex w-[170px] items-center justify-center rounded-full border border-zinc-700 py-4 transition duration-300 hover:border-zinc-200 hover:font-semibold"
+              className="relative z-10 flex w-[220px] sm:w-[190px] items-center justify-center rounded-full border border-zinc-700 py-4 transition duration-300 hover:border-zinc-200 hover:font-semibold"
             >
               Contact Me
             </a>
@@ -145,7 +145,7 @@ export default function HomePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.2 }}
-                className="text-4xl md:text-7xl font-bold leading-tight max-w-5xl"
+                className="text-3xl sm:text-4xl md:text-7xl font-bold leading-tight max-w-5xl"
               >
                 I create visually immersive products focused on interaction,
                 storytelling, and premium frontend engineering.
@@ -236,7 +236,7 @@ export default function HomePage() {
         {/* Contact */}
         <section
           id="contact"
-          className="relative overflow-hidden border-t border-zinc-900 px-6 py-40"
+          className="relative overflow-hidden border-t border-zinc-900 px-6 py-24 md:py-40"
         >
           {/* Ambient Glow */}
           <div className="absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-purple-700/10 blur-[160px]" />
@@ -246,7 +246,7 @@ export default function HomePage() {
               Contact
             </p>
 
-            <h2 className="max-w-4xl text-5xl font-black leading-[0.95] tracking-[-0.04em] md:text-7xl">
+            <h2 className="max-w-4xl text-3xl sm:text-5xl font-black leading-[0.95] tracking-[-0.04em] md:text-7xl">
               Let’s build something unforgettable.
             </h2>
 
@@ -289,7 +289,7 @@ export default function HomePage() {
 
       <div className="pointer-events-none absolute bottom-0 left-0 h-40 w-full bg-gradient-to-t from-black to-transparent" />
       <footer className="relative border-t border-white/5 px-6 py-10">
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 md:flex-row">
+        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 flex-col md:flex-row">
           {/* Left */}
           <div className="flex items-center gap-4">
             <div className="relative flex items-center justify-center">

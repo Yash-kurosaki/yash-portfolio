@@ -74,7 +74,7 @@ export default function ProjectCard({
         rotateY: smoothRotateY,
         transformPerspective: 2000,
       }}
-      className="group relative w-[800px] h-[620px] overflow-hidden rounded-[40px] border border-white/10 bg-white/[0.03] p-10 backdrop-blur-xl"
+      className="group relative w-[90vw] max-w-[800px] h-[620px] overflow-hidden rounded-[40px] border border-white/10 bg-white/[0.03] p-5 md:p-10 backdrop-blur-xl"
     >
       {/* Mouse Glow */}
       <motion.div
@@ -96,7 +96,7 @@ export default function ProjectCard({
           Featured Project
         </p>
 
-        <h3 className="text-4xl font-bold text-white">{title}</h3>
+        <h3 className="text-2xl md:text-4xl font-bold text-white">{title}</h3>
 
         <p className="mt-6 max-w-xl text-lg leading-relaxed text-zinc-400">
           {description}
@@ -138,7 +138,7 @@ export default function ProjectCard({
             alt={title}
             width={1200}
             height={700}
-            className="h-[260px] w-full object-cover transition duration-700 group-hover:scale-105 group-hover:brightness-110"
+            className="h-[200px] md:h-[260px] w-full object-cover transition duration-700 group-hover:scale-105 group-hover:brightness-110"
           />
 
           {/* Overlay */}
