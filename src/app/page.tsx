@@ -195,23 +195,34 @@ export default function HomePage() {
             <HorizontalScroll>
               <div className="min-w-[800px] snap-center">
                 <ProjectCard
+                  title="Company Memory AI"
+                  description="An AI-powered company knowledge management system that captures, organizes, and retrieves institutional memory using intelligent search and contextual understanding."
+                  image="/projects/Company-Memory-AI.png"
+                  stack={["Next.js", "AI", "TypeScript", "Tailwind"]}
+                  github="https://github.com/Yash-kurosaki/Company-Memory-AI"
+                  live="https://company-memory-ai.vercel.app/"
+                />
+              </div>
+
+              <div className="min-w-[800px] snap-center">
+                <ProjectCard
+                  title="BurnerX"
+                  description="A multi-chain devnet session wallet platform creating temporary wallets on Solana, Ethereum, Base, and Arbitrum. Set a timer, fund, transfer — then watch them disappear. Built for developers who move fast."
+                  image="/projects/BurnerX.png"
+                  stack={["Solana", "Ethereum", "Base", "Arbitrum"]}
+                  github="https://github.com/Yash-kurosaki/BurnerX"
+                  live="https://burner-x-one-gamma.vercel.app/"
+                />
+              </div>
+
+              <div className="min-w-[800px] snap-center">
+                <ProjectCard
                   title="CryptoLance"
                   description="A decentralized full stack freelancing infrastructure powered by smart-contract escrow, wallet-based identity systems, and scalable modern frontend architecture."
                   image="/projects/CryptoLance.png"
                   stack={["Next.js", "Solidity", "Tailwind", "TypeScript"]}
                   github="https://github.com/Yash-kurosaki"
                   live="https://project.vercel.app"
-                />
-              </div>
-
-              <div className="min-w-[800px] snap-center">
-                <ProjectCard
-                  title="GraphRAG Benchmark Lab"
-                  description="An advanced GraphRAG evaluation platform focused on retrieval accuracy, contextual benchmarking, and LLM-powered evaluation systems."
-                  image="/projects/GraphRAG-Benchmark-Lab.png"
-                  stack={["Python", "Neo4j", "FastAPI", "LLM"]}
-                  github="https://github.com/Yash-kurosaki/Memory-Web"
-                  live="https://memory-web-sigma.vercel.app/"
                 />
               </div>
 
@@ -319,7 +330,7 @@ export default function HomePage() {
             </a>
 
             <a
-              href="https://linkedin.com"
+              href="https://linkedin.com/yash1111"
               target="_blank"
               rel="noopener noreferrer"
               className="transition duration-300 hover:text-white"
