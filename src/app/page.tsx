@@ -1,124 +1,117 @@
 "use client";
-import { motion } from "framer-motion";
-import MagneticButton from "@/components/MagneticButton";
-import GridBackground from "@/components/GridBackground";
-import Reveal from "@/components/Reveal";
-import Navbar from "@/components/Navbar";
-import ProjectCard from "@/components/ProjectCard";
-import SectionDivider from "@/components/SectionDivider";
-import HorizontalScroll from "@/components/HorizontalScroll";
 
 import dynamic from "next/dynamic";
-const MouseGlow = dynamic(() => import("@/components/MouseGlow"), {
-  ssr: false,
-});
-const CustomCursor = dynamic(() => import("@/components/CustomCursor"), {
-  ssr: false,
-});
-const Particles = dynamic(() => import("@/components/Particles"), {
-  ssr: false,
-});
-const OrbScene = dynamic(() => import("@/components/OrbScene"), { ssr: false });
-const Portrait = dynamic(() => import("@/components/Portrait"), { ssr: false });
+import SmoothScroll from "@/components/SmoothScroll";
+import Navbar from "@/components/Navbar";
+import PortraitCanvas from "@/components/portrait/PortraitCanvas";
+
+const CinematicScene = dynamic(
+  () => import("@/components/scene/CinematicScene"),
+  { ssr: false }
+);
+
+const projects = [
+  {
+    title: "Company Memory AI",
+    description:
+      "An AI-powered company knowledge management system that captures, organizes, and retrieves institutional memory using intelligent search and contextual understanding.",
+    image: "/projects/Company-Memory-AI.png",
+    stack: ["Next.js", "AI", "TypeScript", "Tailwind"],
+    github: "https://github.com/Yash-kurosaki/Company-Memory-AI",
+    live: "https://company-memory-ai.vercel.app/",
+    color: "#a78bfa",
+  },
+  {
+    title: "BurnerX",
+    description:
+      "A multi-chain devnet session wallet platform creating temporary wallets on Solana, Ethereum, Base, and Arbitrum.",
+    image: "/projects/BurnerX.png",
+    stack: ["Solana", "Ethereum", "Base", "Arbitrum"],
+    github: "https://github.com/Yash-kurosaki/BurnerX",
+    live: "https://burner-x-one-gamma.vercel.app/",
+    color: "#60a5fa",
+  },
+  {
+    title: "CryptoLance",
+    description:
+      "A decentralized full stack freelancing infrastructure powered by smart-contract escrow, wallet-based identity systems, and scalable modern frontend architecture.",
+    image: "/projects/CryptoLance.png",
+    stack: ["Next.js", "Solidity", "Tailwind", "TypeScript"],
+    github: "https://github.com/Yash-kurosaki",
+    live: "https://github.com/Yash-kurosaki/decentralised-freelancing",
+    color: "#f59e0b",
+  },
+  {
+    title: "NOIR",
+    description:
+      "A futuristic AI website builder featuring prompt-driven generation, cinematic UI systems, Google authentication, and immersive frontend architecture.",
+    image: "/projects/Noir.png",
+    stack: ["React", "AI", "Motion", "Firebase"],
+    github: "https://github.com/Yash-kurosaki",
+    live: "https://project.vercel.app",
+    color: "#e879f9",
+  },
+];
 
 export default function HomePage() {
   return (
-    <main className="relative overflow-hidden bg-black text-white">
-      <MouseGlow />
-      <CustomCursor />
-      <GridBackground />
+    <>
+      <CinematicScene />
+      <SmoothScroll />
       <Navbar />
-      <Particles />
 
-      {/* Background Glow */}
-      <div className="absolute left-1/2 top-[35%] h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-purple-700/10 blur-[140px]" />
-
-      {/* Noise Texture */}
-      <div className="noise" />
-
-      {/* Hero Section */}
-      <section className="relative z-10 flex min-h-screen flex-col items-center justify-start px-6 pt-32 md:pt-25">
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="tracking-[0.4em] uppercase text-zinc-500 text-sm mb-6"
-        >
-          FULL STACK ENGINEER • AI SYSTEMS • CINEMATIC EXPERIENCES
-        </motion.p>
-
-        <motion.h1
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.2 }}
-          className="text-[4rem] md:text-[8rem] font-black text-center leading-none"
-        >
-          <span className="block bg-gradient-to-b from-white via-zinc-500 to-zinc-950 bg-clip-text text-transparent hover:to-purple-500 hover:drop-shadow-[0_0_40px_rgba(168,85,247,0.6)] transition duration-500">
+      {/* Hero */}
+      <section className="relative z-10 flex min-h-screen flex-col items-center justify-center px-6 text-center">
+        <p className="mb-6 text-sm tracking-[0.4em] uppercase text-zinc-500">
+          Full Stack Engineer &bull; AI Systems &bull; Cinematic Experiences
+        </p>
+        <h1 className="text-[4rem] md:text-[8rem] font-black leading-none">
+          <span className="block bg-gradient-to-b from-white via-zinc-400 to-zinc-800 bg-clip-text text-transparent">
             YASH
           </span>
-          <span className="block bg-gradient-to-b from-white via-zinc-500 to-zinc-950 bg-clip-text text-transparent hover:to-purple-500 hover:drop-shadow-[0_0_40px_rgba(168,85,247,0.6)] transition duration-500">
+          <span className="block bg-gradient-to-b from-white via-zinc-400 to-zinc-800 bg-clip-text text-transparent">
             CHAUHAN
           </span>
-        </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.4 }}
-          className="mt-8 text-zinc-400 text-center max-w-xl text-lg leading-relaxed"
-        >
+        </h1>
+        <p className="mt-8 max-w-xl text-lg leading-relaxed text-zinc-400">
           Building scalable full stack systems, immersive frontend experiences,
           AI-powered products, and modern backend architectures focused on
           performance and interaction.
-        </motion.p>
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.6 }}
-          className="mt-20 flex flex-col gap-10 sm:flex-row sm:gap-6 "
-        >
-          <MagneticButton>
-            <a
-              href="#projects"
-              className="relative z-10 flex w-[220px] sm:w-[190px] items-center justify-center rounded-full bg-white py-4 font-semibold text-black transition duration-300 hover:scale-105 hover:font-bold"
-            >
-              Explore Work
-            </a>
-          </MagneticButton>
-
-          <MagneticButton>
-            <a
-              href="#contact"
-              className="relative z-10 flex w-[220px] sm:w-[190px] items-center justify-center rounded-full border border-zinc-700 py-4 transition duration-300 hover:border-zinc-200 hover:font-semibold"
-            >
-              Contact Me
-            </a>
-          </MagneticButton>
-        </motion.div>
+        </p>
+        <div className="mt-12 flex flex-col gap-4 sm:flex-row">
+          <a
+            href="#projects"
+            className="rounded-full bg-white px-8 py-3 text-sm font-semibold text-black transition hover:scale-105"
+          >
+            Explore Work
+          </a>
+          <a
+            href="#contact"
+            className="rounded-full border border-white/20 px-8 py-3 text-sm text-white transition hover:bg-white/10"
+          >
+            Contact Me
+          </a>
+        </div>
       </section>
 
-      <section
-        id="about"
-        className="relative z-10 overflow-hidden px-6 py-30 border-t border-zinc-900"
-      >
-        <OrbScene />
-        <Portrait />
-        <Reveal>
-          {/* About */}
-          <div className="relative z-10 mx-auto flex max-w-7xl gap-16">
-            <div>
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.1 }}
-                className="text-zinc-500 uppercase tracking-[0.3em] mb-6"
-              >
+      {/* About */}
+      <section id="about" className="relative z-10 px-6 pt-32 pb-20">
+        <div className="mx-auto max-w-7xl">
+          <div className="flex flex-col gap-12 lg:flex-row lg:items-center">
+            <div className="lg:w-3/5">
+              <p className="mb-4 text-sm uppercase tracking-[0.3em] text-zinc-500">
                 About
-              </motion.p>
-
-              <div className="mt-10 flex flex-wrap gap-3 hover:">
+              </p>
+              <h1 className="mb-10 max-w-4xl text-4xl font-black leading-tight tracking-tight md:text-6xl">
+                I create visually immersive products focused on interaction,
+                storytelling, and premium frontend engineering.
+              </h1>
+              <p className="mb-10 max-w-3xl text-lg leading-relaxed text-zinc-400">
+                My focus is building modern digital experiences using advanced
+                animation systems, scalable frontend architecture, and cinematic
+                UI design principles.
+              </p>
+              <div className="flex flex-wrap gap-2">
                 {[
                   "Node.js",
                   "Express",
@@ -130,223 +123,162 @@ export default function HomePage() {
                   "Neo4j",
                   "Solidity",
                   "AWS",
+                  "Next.js",
+                  "TypeScript",
+                  "React",
+                  "Tailwind",
                 ].map((tech) => (
-                  <div
+                  <span
                     key={tech}
-                    className="rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-xs uppercase tracking-[0.2em] text-zinc-400 backdrop-blur-xl hover:scale-110 transition duration-300"
+                    className="rounded-full border border-white/10 px-3 py-1.5 text-xs text-zinc-500"
                   >
                     {tech}
-                  </div>
+                  </span>
                 ))}
               </div>
-
-              <motion.h2
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2 }}
-                className="text-3xl sm:text-4xl md:text-7xl font-bold leading-tight max-w-5xl"
-              >
-                I create visually immersive products focused on interaction,
-                storytelling, and premium frontend engineering.
-              </motion.h2>
-
-              <motion.p
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.3 }}
-                className="mt-10 text-zinc-400 text-lg max-w-3xl leading-relaxed"
-              >
-                My focus is building modern digital experiences using advanced
-                animation systems, scalable frontend architecture, and cinematic
-                UI design principles.
-              </motion.p>
             </div>
-          </div>
-        </Reveal>
-      </section>
-
-      <SectionDivider />
-
-      <Reveal>
-        {/* Projects */}
-        <section
-          id="projects"
-          className="relative z-10 border-t border-zinc-900 px-6 py-20"
-        >
-          {/* Ambient Glow */}
-          <div className="absolute left-1/2 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-purple-700/10 blur-[180px]" />
-
-          <div className="relative z-10 mx-auto max-w-7xl">
-            <p className="mb-6 uppercase tracking-[0.3em] text-zinc-500">
-              Projects
-            </p>
-
-            <h2 className="mb-8 text-5xl font-black tracking-[-0.04em] md:text-7xl">
-              Selected Work.
-            </h2>
-
-            <p className="mb-16 max-w-xl text-lg leading-relaxed text-zinc-500">
-              A curated collection of immersive digital products, cinematic
-              interfaces, and experimental engineering systems.
-            </p>
-
-            <HorizontalScroll>
-              <div className="min-w-[800px] snap-center">
-                <ProjectCard
-                  title="Company Memory AI"
-                  description="An AI-powered company knowledge management system that captures, organizes, and retrieves institutional memory using intelligent search and contextual understanding."
-                  image="/projects/Company-Memory-AI.png"
-                  stack={["Next.js", "AI", "TypeScript", "Tailwind"]}
-                  github="https://github.com/Yash-kurosaki/Company-Memory-AI"
-                  live="https://company-memory-ai.vercel.app/"
-                />
-              </div>
-
-              <div className="min-w-[800px] snap-center">
-                <ProjectCard
-                  title="BurnerX"
-                  description="A multi-chain devnet session wallet platform creating temporary wallets on Solana, Ethereum, Base, and Arbitrum. Set a timer, fund, transfer — then watch them disappear. Built for developers who move fast."
-                  image="/projects/BurnerX.png"
-                  stack={["Solana", "Ethereum", "Base", "Arbitrum"]}
-                  github="https://github.com/Yash-kurosaki/BurnerX"
-                  live="https://burner-x-one-gamma.vercel.app/"
-                />
-              </div>
-
-              <div className="min-w-[800px] snap-center">
-                <ProjectCard
-                  title="CryptoLance"
-                  description="A decentralized full stack freelancing infrastructure powered by smart-contract escrow, wallet-based identity systems, and scalable modern frontend architecture."
-                  image="/projects/CryptoLance.png"
-                  stack={["Next.js", "Solidity", "Tailwind", "TypeScript"]}
-                  github="https://github.com/Yash-kurosaki"
-                  live="https://project.vercel.app"
-                />
-              </div>
-
-              <div className="min-w-[800px] snap-center">
-                <ProjectCard
-                  title="NOIR"
-                  description="A futuristic AI website builder featuring prompt-driven generation, cinematic UI systems, Google authentication, and immersive frontend architecture."
-                  image="/projects/Noir.png"
-                  stack={["React", "AI", "Motion", "Firebase"]}
-                  github="https://github.com/Yash-kurosaki"
-                  live="https://project.vercel.app"
-                />
-              </div>
-            </HorizontalScroll>
-          </div>
-        </section>
-      </Reveal>
-
-      <SectionDivider />
-
-      <Reveal>
-        {/* Contact */}
-        <section
-          id="contact"
-          className="relative overflow-hidden border-t border-zinc-900 px-6 py-24 md:py-40"
-        >
-          {/* Ambient Glow */}
-          <div className="absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-purple-700/10 blur-[160px]" />
-
-          <div className="relative z-10 mx-auto flex max-w-5xl flex-col items-center text-center">
-            <p className="mb-6 uppercase tracking-[0.4em] text-zinc-500">
-              Contact
-            </p>
-
-            <h2 className="max-w-4xl text-3xl sm:text-5xl font-black leading-[0.95] tracking-[-0.04em] md:text-7xl">
-              Let’s build something unforgettable.
-            </h2>
-
-            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-zinc-500">
-              Focused on building scalable full stack products, AI systems,
-              immersive interfaces, and engineering experiences that merge
-              technology with cinematic interaction design.
-            </p>
-
-            {/* CTA Buttons */}
-            <div className="mt-14 flex flex-wrap items-center justify-center gap-6">
-              <a
-                href="mailto:chauhanyash20006@gmail.com"
-                className="rounded-full bg-white px-8 py-4 text-sm font-semibold text-black transition duration-300 hover:scale-105"
-              >
-                Get In Touch
-              </a>
-
-              <a
-                href="https://github.com/Yash-kurosaki"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-full border border-white/10 bg-white/[0.03] px-8 py-4 text-sm text-white backdrop-blur-xl transition duration-300 hover:border-purple-500/40 hover:bg-purple-500/10"
-              >
-                GitHub
-              </a>
-            </div>
-
-            {/* Availability */}
-            <div className="mt-16 flex items-center gap-3">
-              <div className="h-3 w-3 rounded-full bg-green-500 shadow-[0_0_20px_rgba(34,197,94,0.9)]" />
-
-              <span className="text-sm tracking-[0.2em] text-zinc-500 uppercase">
-                Available For Projects
-              </span>
-            </div>
-          </div>
-        </section>
-      </Reveal>
-
-      <div className="pointer-events-none absolute bottom-0 left-0 h-40 w-full bg-gradient-to-t from-black to-transparent" />
-      <footer className="relative border-t border-white/5 px-6 py-10">
-        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 flex-col md:flex-row">
-          {/* Left */}
-          <div className="flex items-center gap-4">
-            <div className="relative flex items-center justify-center">
-              <div className="absolute h-12 w-12 rounded-full bg-purple-500/20 blur-2xl" />
-
-              <img
-                src="/white-logo.png"
-                alt="YC Logo"
-                className="relative z-10 h-10 w-10 object-contain"
+            <div className="lg:sticky lg:top-24 lg:flex lg:w-2/5 lg:justify-center">
+              <PortraitCanvas
+                src="/portait.png"
+                className="h-[400px] w-full max-w-sm rounded-2xl border border-white/5 bg-[#0a0a0a]/80 lg:h-[500px]"
               />
             </div>
-
-            <p className="text-sm text-zinc-600">
-              Designed & engineered by Yash Chauhan
-            </p>
           </div>
+        </div>
+      </section>
 
-          {/* Right */}
-          <div className="flex items-center gap-6 text-sm uppercase tracking-[0.2em] text-zinc-500">
+      {/* Projects */}
+      <section
+        id="projects"
+        className="relative z-10 border-t border-zinc-900 px-6 py-20"
+      >
+        <div className="mx-auto max-w-6xl">
+          <p className="mb-4 text-sm uppercase tracking-[0.3em] text-zinc-500">
+            Projects
+          </p>
+          <h2 className="mb-12 text-4xl font-black tracking-tight md:text-6xl">
+            Selected Work<span className="text-purple-500">.</span>
+          </h2>
+
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+            {projects.map((project) => (
+              <div
+                key={project.title}
+                className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02] p-6 transition-all hover:border-white/20"
+              >
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="mb-4 h-48 w-full rounded-xl object-cover object-top opacity-60"
+                />
+                <h3 className="mb-2 text-xl font-bold">{project.title}</h3>
+                <p className="mb-4 text-sm leading-relaxed text-zinc-400">
+                  {project.description}
+                </p>
+                <div className="mb-4 flex flex-wrap gap-2">
+                  {project.stack.map((s) => (
+                    <span
+                      key={s}
+                      className="rounded-full border border-white/10 px-2.5 py-1 text-xs text-zinc-500"
+                    >
+                      {s}
+                    </span>
+                  ))}
+                </div>
+                <div className="flex gap-4">
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-zinc-500 transition hover:text-white"
+                  >
+                    GitHub
+                  </a>
+                  <a
+                    href={project.live}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-zinc-500 transition hover:text-white"
+                  >
+                    Live →
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Contact */}
+      <section
+        id="contact"
+        className="relative z-10 border-t border-zinc-900 px-6 py-24"
+      >
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="mb-4 text-sm uppercase tracking-[0.3em] text-zinc-500">
+            Contact
+          </p>
+          <h2 className="mb-6 text-4xl font-black tracking-tight md:text-6xl">
+            Let&apos;s work together<span className="text-purple-500">.</span>
+          </h2>
+          <p className="mb-10 text-lg text-zinc-400">
+            Have a project in mind? I&apos;d love to hear about it.
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <a
+              href="mailto:chauhanyash20006@gmail.com"
+              className="rounded-full bg-white px-8 py-3 text-sm font-semibold text-black transition hover:scale-105"
+            >
+              Get In Touch
+            </a>
             <a
               href="https://github.com/Yash-kurosaki"
               target="_blank"
               rel="noopener noreferrer"
-              className="transition duration-300 hover:text-white"
+              className="rounded-full border border-white/20 px-8 py-3 text-sm text-white transition hover:bg-white/10"
             >
               GitHub
             </a>
+          </div>
+          <div className="mt-12 flex items-center justify-center gap-2">
+            <div className="h-2 w-2 rounded-full bg-green-500" />
+            <span className="text-xs uppercase tracking-widest text-zinc-500">
+              Available for projects
+            </span>
+          </div>
+        </div>
+      </section>
 
+      {/* Footer */}
+      <footer className="relative z-10 border-t border-zinc-900 px-6 py-8">
+        <div className="mx-auto flex max-w-6xl items-center justify-between text-sm text-zinc-600">
+          <p>Designed &amp; engineered by Yash Chauhan</p>
+          <div className="flex gap-6">
+            <a
+              href="https://github.com/Yash-kurosaki"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition hover:text-white"
+            >
+              GitHub
+            </a>
             <a
               href="https://linkedin.com/yash1111"
               target="_blank"
               rel="noopener noreferrer"
-              className="transition duration-300 hover:text-white"
+              className="transition hover:text-white"
             >
               LinkedIn
             </a>
-
             <a
-              href="mailto:your@email.com"
-              className="transition duration-300 hover:text-white"
+              href="mailto:chauhanyash20006@gmail.com"
+              className="transition hover:text-white"
             >
               Email
             </a>
           </div>
         </div>
       </footer>
-    </main>
+    </>
   );
 }

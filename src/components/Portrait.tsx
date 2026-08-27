@@ -59,7 +59,7 @@ export default function Portrait() {
           width={700}
           height={900}
           className="object-contain"
-          priority
+          loading="lazy"
         />
       </motion.div>
     </motion.div>
