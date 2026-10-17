@@ -18,6 +18,14 @@ export default function PortraitCanvas({ src, className = "" }: PortraitCanvasPr
   const mouseRef = useRef({ x: 0, y: 0 });
   const smoothMouse = useRef({ x: 0, y: 0 });
   const rafRef = useRef<number>(0);
+  const reducedMotion = useRef(false);
+  const drawRef = useRef<() => void>(() => {});
+
+  useEffect(() => {
+    reducedMotion.current = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+  }, []);
 
   useEffect(() => {
     const img = new Image();
@@ -84,7 +92,12 @@ export default function PortraitCanvas({ src, className = "" }: PortraitCanvasPr
     const w = rect.width;
     const h = rect.height;
 
-    currentProgress.current += (progressRef.current - currentProgress.current) * 0.04;
+    if (reducedMotion.current) {
+      currentProgress.current = 1;
+    } else {
+      currentProgress.current +=
+        (progressRef.current - currentProgress.current) * 0.04;
+    }
     const progress = currentProgress.current;
 
     smoothMouse.current.x += (mouseRef.current.x - smoothMouse.current.x) * 0.06;
@@ -140,12 +153,22 @@ export default function PortraitCanvas({ src, className = "" }: PortraitCanvasPr
       }
 
     ctx.restore();
-    rafRef.current = requestAnimationFrame(draw);
+    if (!reducedMotion.current) {
+      rafRef.current = requestAnimationFrame(() => drawRef.current());
+    }
   }, [dots]);
 
   useEffect(() => {
+    drawRef.current = draw;
+  }, [draw]);
+
+  useEffect(() => {
     if (dots.length === 0) return;
-    rafRef.current = requestAnimationFrame(draw);
+    if (reducedMotion.current) {
+      draw();
+      return;
+    }
+    rafRef.current = requestAnimationFrame(() => drawRef.current());
     return () => cancelAnimationFrame(rafRef.current);
   }, [dots, draw]);
 

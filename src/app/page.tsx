@@ -1,14 +1,8 @@
-"use client";
-
-import dynamic from "next/dynamic";
+import Image from "next/image";
+import SceneBackground from "@/components/SceneBackground";
 import SmoothScroll from "@/components/SmoothScroll";
 import Navbar from "@/components/Navbar";
 import PortraitCanvas from "@/components/portrait/PortraitCanvas";
-
-const CinematicScene = dynamic(
-  () => import("@/components/scene/CinematicScene"),
-  { ssr: false }
-);
 
 const projects = [
   {
@@ -56,7 +50,7 @@ const projects = [
 export default function HomePage() {
   return (
     <>
-      <CinematicScene />
+      <SceneBackground />
       <SmoothScroll />
       <Navbar />
 
@@ -166,9 +160,12 @@ export default function HomePage() {
                 key={project.title}
                 className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.02] p-6 transition-all hover:border-white/20"
               >
-                <img
+                <Image
                   src={project.image}
                   alt={project.title}
+                  width={640}
+                  height={192}
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="mb-4 h-48 w-full rounded-xl object-cover object-top opacity-60"
                 />
                 <h3 className="mb-2 text-xl font-bold">{project.title}</h3>
