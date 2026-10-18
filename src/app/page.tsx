@@ -42,7 +42,7 @@ const projects = [
     image: "/projects/Noir.png",
     stack: ["React", "AI", "Motion", "Firebase"],
     github: "https://github.com/Yash-kurosaki",
-    live: "https://project.vercel.app",
+    live: "https://noir-ai1.vercel.app",
     color: "#e879f9",
   },
 ];
