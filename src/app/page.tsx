@@ -6,6 +6,16 @@ import PortraitCanvas from "@/components/portrait/PortraitCanvas";
 
 const projects = [
   {
+    title: "CryptoLance",
+    description:
+      "A decentralized full stack freelancing infrastructure powered by smart-contract escrow, wallet-based identity systems, and scalable modern frontend architecture.",
+    image: "/projects/CryptoLance.png",
+    stack: ["Next.js", "Solidity", "Tailwind", "TypeScript"],
+    github: "https://github.com/Yash-kurosaki",
+    live: "https://cryptolance.vercel.app/",
+    color: "#f59e0b",
+  },
+  {
     title: "Company Memory AI",
     description:
       "An AI-powered company knowledge management system that captures, organizes, and retrieves institutional memory using intelligent search and contextual understanding.",
@@ -24,16 +34,6 @@ const projects = [
     github: "https://github.com/Yash-kurosaki/BurnerX",
     live: "https://burner-x-one-gamma.vercel.app/",
     color: "#60a5fa",
-  },
-  {
-    title: "CryptoLance",
-    description:
-      "A decentralized full stack freelancing infrastructure powered by smart-contract escrow, wallet-based identity systems, and scalable modern frontend architecture.",
-    image: "/projects/CryptoLance.png",
-    stack: ["Next.js", "Solidity", "Tailwind", "TypeScript"],
-    github: "https://github.com/Yash-kurosaki",
-    live: "https://cryptolance.vercel.app/",
-    color: "#f59e0b",
   },
   {
     title: "NOIR",
