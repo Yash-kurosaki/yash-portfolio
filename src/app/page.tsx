@@ -32,7 +32,7 @@ const projects = [
     image: "/projects/CryptoLance.png",
     stack: ["Next.js", "Solidity", "Tailwind", "TypeScript"],
     github: "https://github.com/Yash-kurosaki",
-    live: "https://github.com/Yash-kurosaki/decentralised-freelancing",
+    live: "https://cryptolance.vercel.app/",
     color: "#f59e0b",
   },
   {
@@ -268,7 +268,13 @@ export default function HomePage() {
               LinkedIn
             </a>
             <a
-              href="mailto:chauhanyash20006@gmail.com"
+              href="https://x.com/yasxh01"
+              className="transition hover:text-white"
+            >
+              X
+            </a>
+            <a
+              href="chauhanyash20006@gmail.com"
               className="transition hover:text-white"
             >
               Email
